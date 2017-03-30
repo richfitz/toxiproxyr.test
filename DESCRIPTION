@@ -1,0 +1,16 @@
+Package: toxiproxyr.test
+Title: Example of 'toxiproxyr' in Tests
+Version: 0.0.1
+Author: Rich FitzJohn
+Maintainer: Rich FitzJohn <rich.fitzjohn@gmail.com>
+Description: An example of using 'toxiproxyr' in tests on 'travis' and
+    'appveyor'.  This is not a package that does anything interesting,
+    but it may be useful for developing configurations.
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports:
+    RPostgreSQL
+Suggests:
+    testthat
+RoxygenNote: 5.0.1

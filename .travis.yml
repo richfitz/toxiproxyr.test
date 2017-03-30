@@ -1,0 +1,11 @@
+language: r
+cache: packages
+sudo: false
+
+services:
+  - postgresql
+addons:
+  postgresql: "9.4"
+  apt:
+    packages:
+      - libpq-dev
