@@ -12,5 +12,7 @@ LazyData: true
 Imports:
     RPostgreSQL
 Suggests:
-    testthat
+    testthat,
+    toxiproxyr
 RoxygenNote: 5.0.1
+Remotes: richfitz/toxiproxyr

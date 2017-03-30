@@ -9,3 +9,6 @@ addons:
   apt:
     packages:
       - libpq-dev
+
+before_script:
+  - Rscript -e 'toxiproxyr:::copy_scripts(".")' && ./toxiproxy_start.R .
