@@ -11,4 +11,4 @@ addons:
       - libpq-dev
 
 before_script:
-  - R -e 'toxiproxyr:::copy_scripts(".toxiproxy")' && ./toxiproxy_start.R .toxiproxy
+  - Rscript -e 'toxiproxyr:::toxiproxy_start_ci(".toxiproxy")'
