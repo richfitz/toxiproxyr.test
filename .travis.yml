@@ -2,6 +2,8 @@ language: r
 cache: packages
 sudo: false
 
+# These bits are required to compile the SQL package and to start the
+# database service.
 services:
   - postgresql
 addons:
@@ -10,5 +12,8 @@ addons:
     packages:
       - libpq-dev
 
+# This will ensure that the toxiproxy server is started.  It needs to
+# go in "before_script" because that is run after dependencies have
+# been installed but before any of the tests will run
 before_script:
   - Rscript -e 'toxiproxyr:::toxiproxy_start_ci(".toxiproxy")'

@@ -12,8 +12,14 @@ install:
 
 # Adapt as necessary starting from here
 
+# The second line here starts the toxiproxy server; it is the same
+# line as used in .travis.yml but in a different place.  Again this
+# needs to be run after the dependencies are installed but before the
+# tests run.  Nothing else here is different from the usual appveyor
+# configuration.
 build_script:
   - travis-tool.sh install_deps
+  - Rscript -e 'toxiproxyr:::toxiproxy_start_ci(".toxiproxy")'
 
 test_script:
   - travis-tool.sh run_tests
