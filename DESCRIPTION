@@ -11,8 +11,8 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     RPostgreSQL
+RoxygenNote: 5.0.1
 Suggests:
     testthat,
     toxiproxyr
-RoxygenNote: 5.0.1
 Remotes: richfitz/toxiproxyr

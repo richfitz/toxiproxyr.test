@@ -1,5 +1,6 @@
 context("toxiproxyr.test")
 
+## This is what typical tests in the package might look like:
 test_that("without proxy", {
   con <- DBI::dbConnect(RPostgreSQL::PostgreSQL(),
                         host = "localhost",
@@ -8,8 +9,18 @@ test_that("without proxy", {
 })
 
 test_that("with proxy", {
+  ## Don't continue of toxiproxyr (the package) is not installed
+  skip_if_not_installed("toxiproxyr")
+
+  ## Don't continue if toxiproxy server is not running
+  toxiproxyr::skip_if_no_toxiproxy_server()
+
+  ## Create a proxy pointing at the server, and ensure (via on.exit)
+  ## that it is removed at the end of this test block)
   tox <- toxiproxyr::toxiproxy_create("slow_sql", upstream = 5432)
   on.exit(tox$destroy())
+
+  ## Create a postgres connection over our proxy:
   con <- DBI::dbConnect(RPostgreSQL::PostgreSQL(),
                         host = tox$listen_host,
                         port = tox$listen_port)
